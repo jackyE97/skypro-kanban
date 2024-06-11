@@ -68,7 +68,7 @@ const Calendar = () => {
 
         <input type="hidden" id="datepick_value" value="08.09.2023" />
         <div className="calendar__period">
-            <p className="calendar__p date-end">Срок исполнения: <span class="date-control">09.09.23</span></p>
+            <p className="calendar__p date-end">Срок исполнения: <span className="date-control">09.09.23</span></p>
         </div>
     </div>
 </div> );

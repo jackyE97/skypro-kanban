@@ -35,7 +35,7 @@ const PopBrowse = () => {
                         <div className="pop-browse__wrap">
                             <form className="pop-browse__form form-browse" id="formBrowseCard" action="#">
                                 <div className="form-browse__block">
-                                    <label for="textArea01" className="subttl">Описание задачи</label>
+                                    <label htmlFor="textArea01" className="subttl">Описание задачи</label>
                                     <textarea className="form-browse__area" name="text" id="textArea01" readOnly placeholder="Введите описание задачи..."></textarea>
                                 </div>
                             </form>
