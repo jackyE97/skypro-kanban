@@ -1,15 +1,29 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-const Header = () => {
+const Header = ({ setCards, cards }) => {
     const [isOpen, setOpen] = useState(false);
 
     const handleOpen = () => {
         setOpen((prev) => !prev )
     } ;
 
-    useEffect(() => {
+//     useEffect(() => {
+// }, [isOpen]);
 
-    }, [isOpen]);
+const onAddCard = () => {
+    console.log("add card");
+
+    const newCard = {
+        id: Date.now(),
+        title: "Новая задача",
+        topic: "Без темы",
+        date: "10.05.2024",
+        status: "Без статуса",
+    }
+    const newCardList = [...cards, newCard]
+    setCards(newCardList);
+};
+
     return ( 
         <header className="header">
         <div className="container">
@@ -21,7 +35,8 @@ const Header = () => {
                     <a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
                 </div>
                 <nav className="header__nav">
-                    <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button>
+                    <button className="header__btn-main-new _hover01" onClick={onAddCard}>
+                        Создать новую задачу</button>
                     <div className="header__user _hover02" onClick={handleOpen}>
                         Ivan Ivanov</div>
                         {isOpen && (
