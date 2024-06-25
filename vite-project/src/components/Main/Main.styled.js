@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { breakpoints } from "../../lib/breakpoints";
 
 export const Main = styled.main`
   width: 100%;
@@ -22,7 +23,7 @@ export const MainBlock = styled.div`
   margin: 0 auto;
   padding: 25px 0 49px;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${breakpoints.xl}px) {
     width: 100%;
     margin: 0 auto;
     padding: 40px 0 64px;
@@ -33,7 +34,7 @@ export const MainContent = styled.div`
   width: 100%;
   display: flex;
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${breakpoints.xl}px) {
     display: block;
   }
 `;

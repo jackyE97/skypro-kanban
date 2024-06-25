@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { topicStyles } from "../../lib/topic";
+import { breakpoints } from "../../lib/breakpoints";
 
 
 export const CardsItem = styled.div`
@@ -6,6 +8,11 @@ export const CardsItem = styled.div`
   animation-name: card-animation;
   animation-duration: 500ms;
   animation-timing-function: linear;
+  @media (max-width: ${breakpoints.xl}px) {
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+  }
 `;
 
 export const CardsCard = styled.div`
@@ -18,9 +25,8 @@ export const CardsCard = styled.div`
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
-  /* padding: 2em; */
 
-  @media (max-width: 1200px) {
+  @media (max-width: ${breakpoints.xl}px) {
     width: 220px;
     height: 130px;
     background-color: #ffffff;
@@ -46,16 +52,16 @@ export const CardText = styled.p`
   font-weight: 600;
   line-height: 10px;
 `;
-export const CardTheme = styled.div`
+export const CardTopic = styled.div`
   width: auto;
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
-  background-color: ${({ $themeColor }) =>
-    topicStyles[$themeColor]?.backgroundColor || "#94a6be"};
+  background-color: ${({ $topicColor }) =>
+    topicStyles[$topicColor]?.backgroundColor || "#b4fdd1"};
 
   ${CardText} {
-    color: ${({ $themeColor }) => topicStyles[$themeColor]?.color || "#ffffff"};
+    color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
   }
 `;
 
@@ -103,12 +109,6 @@ export const CardDate = styled.div`
   }
 
   p {
-    /* font-size: 10px;
-    font-weight: 400;
-    line-height: 11.72px;
-    letter-spacing: 0.01em;
-    text-align: left; */
-
     margin-left: 6px;
     font-size: 10px;
     line-height: 13px;

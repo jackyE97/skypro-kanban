@@ -1,23 +1,31 @@
 import * as S from "./Card.styled.js";
+import { colorList } from "../../lib/topic.js";
 
 const Card = ({ topic, title, date }) => {
 
-    const colorList = {
-        "Web Design": "_orange",
-        Copywriting: "_purple",
-        Research: "_green",
-    };
+    // const colorList = {
+    //     "Web Design": "_orange",
+    //     Copywriting: "_purple",
+    //     Research: "_green",
+    // };
 
     const colorClass = colorList[topic] || "_orange";
+
 
 
     return (
         <S.CardsItem>
             <S.CardsCard>
                 <S.CardGroup>
-                    <div className={`card__theme ${colorClass}`}>
+                    {/* <S.CardTopic $topicColor="_purple" />
+                        <S.CardText $topicColor>{topic}</S.CardText>
+
+                         <div className={`card__theme ${colorClass}`}>
                         <p className={colorClass}>{topic}</p>
-                    </div>
+                    </div> */}
+                    <S.CardTopic $topicColor={colorClass}>
+                        <S.CardText $topicColor>{topic}</S.CardText>
+                    </S.CardTopic>
                     <a href="#popBrowse" target="_self">
                         <div className="card__btn">
                             <div></div>

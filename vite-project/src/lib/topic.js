@@ -19,7 +19,7 @@ export const topicStyles = {
     },
   };
   
-  export const topicHeader = {
+  export const colorList= {
     "Web Design": "_orange",
     Research: "_green",
     Copywriting: "_purple",
