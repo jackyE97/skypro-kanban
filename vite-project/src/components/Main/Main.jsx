@@ -1,15 +1,11 @@
+import * as S from "./Main.styled.js";
 import { useEffect, useState } from "react";
 import Column from "../Column/Column";
+import { statusList } from "../Data/status";
 
-const statusList = [
-    "Без статуса",
-    "Нужно сделать",
-    "В работе",
-    "Тестирование",
-    "Готово",
-];
 
-const Main = ({cardList}) => {
+
+const Main = ({ cardList }) => {
     const [isLoading, setLoading] = useState(true);
     useEffect(() => {
         setTimeout(() => {
@@ -18,11 +14,10 @@ const Main = ({cardList}) => {
     }, []);
 
     return (
-        <main className="main">
-            <div className="container">
-
-                <div className="main__block">
-                    <div className="main__content">
+        <S.Main>
+        <S.Container>
+          <S.MainBlock>
+            <S.MainContent>
                         {isLoading && <p>Идёт загрузка...</p> }
                     {!isLoading && statusList.map((status) => (
                         <Column
@@ -30,11 +25,10 @@ const Main = ({cardList}) => {
                             title={status}
                             cardList={cardList.filter((card) => card.status === status)} />
                         ))}
-                    </div>
-
-                </div>
-            </div>
-        </main>
+                    </S.MainContent>
+        </S.MainBlock>
+      </S.Container>
+    </S.Main>
     );
 }
 

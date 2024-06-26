@@ -5,11 +5,15 @@ import Header from "./components/Header/Header/";
 import Main from "./components/Main/Main";
 import './App.css';
 import { useState } from "react";
-import { cardList } from "./data";
+import { cardList } from "./components/Data/data.js";
+import { GlobalStyle } from "./global.styled";
 
 function App() {
 	const [cards, setCards] = useState(cardList);
+	
 	return (
+		<>
+		<GlobalStyle/>
 		<div>
 			<div className="wrapper">
 				<PopExit />
@@ -20,7 +24,9 @@ function App() {
 				<Main cardList={cards}/>
 			</div>
 		</div>
+		</>
 	)
+	
 }
 
 export default App
