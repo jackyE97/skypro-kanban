@@ -1,6 +1,6 @@
 import Card from "../Card/Card";
 
-const Column = ({title}) => {
+const Column = ({title, cardList }) => {
 
     return (
         <div className="main__column column">
@@ -8,11 +8,16 @@ const Column = ({title}) => {
                 <p>{title}</p>
             </div>
             <div className="cards">
-                <Card category = "Web Design" title = "Задача 1" date = "30.10.23"/>
-                <Card category = "Research" title = "Задача 2" date = "30.10.23"/>
-                <Card category = "Copywriting" title = "Задача 3" date = "30.10.23"/>
+                {cardList.map(({id, topic, title, date}) => (
+                     <Card 
+                     key = {id} 
+                     topic = {topic} 
+                     title = {title} 
+                     date = {date}/>
+                ))}
             </div>
-        </div>);
-}
+        </div>
+        );
+};
 
 export default Column;
