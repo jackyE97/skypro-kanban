@@ -85,9 +85,7 @@ export const HeaderUser = styled.a`
   font-size: 14px;
   line-height: 20px;
   color: #565eef;
-  &:hover {
-    background-color: #33399b;
-  }
+  
 
   &::after {
     content: "";
