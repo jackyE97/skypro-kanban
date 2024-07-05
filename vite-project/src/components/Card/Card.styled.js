@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { topicStyles } from "../../lib/topic";
 import { breakpoints } from "../../lib/breakpoints";
+import { themeColor } from "../../global.styled.js";
 
 
 export const CardsItem = styled.div`
@@ -15,10 +15,10 @@ export const CardsItem = styled.div`
   }
 `;
 
-export const CardsCard = styled.div`
+export const Card = styled.div`
   width: 220px;
   height: 130px;
-  background-color: #ffffff;
+  background-color: ${({ theme }) => theme.cardBg};
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -52,18 +52,25 @@ export const CardText = styled.p`
   font-weight: 600;
   line-height: 10px;
 `;
-export const CardTopic = styled.div`
+
+export const CardTheme = styled.div`
   width: auto;
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
-  background-color: ${({ $topicColor }) =>
-    topicStyles[$topicColor]?.backgroundColor || "#b4fdd1"};
+  color: ${({ theme }) => theme.text};
 
-  ${CardText} {
-    color: ${({ $topicColor }) => topicStyles[$topicColor]?.color || "#06b16e"};
-  }
+${({ $color }) => themeColor($color)}
+
+p {
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 10px;
+  color: ${({ theme }) => theme.text};
+  ${({ $color }) => themeColor($color)}
+}
 `;
+
 
 export const CardBtn = styled.div`
   width: 24px;
@@ -95,8 +102,10 @@ export const CardTitle = styled.h3`
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  color: #000000;
+  color: ${({ theme }) => theme.text};
   margin-bottom: 10px;
+
+  ${({ $color }) => themeColor($color)}
 `;
 
 export const CardDate = styled.div`
@@ -112,7 +121,7 @@ export const CardDate = styled.div`
     margin-left: 6px;
     font-size: 10px;
     line-height: 13px;
-    color: #94a6be;
+    color: ${({ theme }) => theme.text};
     letter-spacing: 0.2px;
   }
 `;

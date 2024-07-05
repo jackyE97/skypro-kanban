@@ -1,31 +1,14 @@
 import * as S from "./Card.styled.js";
-import { colorList } from "../../lib/topic.js";
 
-const Card = ({ topic, title, date }) => {
-
-    // const colorList = {
-    //     "Web Design": "_orange",
-    //     Copywriting: "_purple",
-    //     Research: "_green",
-    // };
-
-    const colorClass = colorList[topic] || "_orange";
-
-
+const Card = ({ topic, title, date, color }) => {
 
     return (
         <S.CardsItem>
-            <S.CardsCard>
+            <S.Card>
                 <S.CardGroup>
-                    {/* <S.CardTopic $topicColor="_purple" />
-                        <S.CardText $topicColor>{topic}</S.CardText>
-
-                         <div className={`card__theme ${colorClass}`}>
-                        <p className={colorClass}>{topic}</p>
-                    </div> */}
-                    <S.CardTopic $topicColor={colorClass}>
-                        <S.CardText $topicColor>{topic}</S.CardText>
-                    </S.CardTopic>
+                    <S.CardTheme $color={topic}>
+                        <S.CardText>{topic}</S.CardText>
+                    </S.CardTheme>
                     <a href="#popBrowse" target="_self">
                         <div className="card__btn">
                             <div></div>
@@ -36,7 +19,7 @@ const Card = ({ topic, title, date }) => {
                 </S.CardGroup>
                 <S.CardContent>
                     <a href="" target="_blank">
-                        <S.CardTitle>{title}</S.CardTitle>
+                        <S.CardTitle $color={color}>{title}</S.CardTitle>
                     </a>
                     <S.CardDate>
                         <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -53,7 +36,7 @@ const Card = ({ topic, title, date }) => {
                         <p>{date}</p>
                     </S.CardDate>
                 </S.CardContent>
-            </S.CardsCard>
+            </S.Card>
         </S.CardsItem>);
 }
 

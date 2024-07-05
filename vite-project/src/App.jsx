@@ -1,32 +1,42 @@
-import PopExit from "./components/PopExit/PopExit";
+import './App.css';
 import PopNewCard from "./components/PopNewCard/PopNewCard";
 import PopBrowse from "./components/PopBrowse/PopBrowse";
 import Header from "./components/Header/Header/";
 import Main from "./components/Main/Main";
-import './App.css';
 import { useState } from "react";
-import { cardList } from "./components/Data/data.js";
+import { cardList } from "./data/data.js";
 import { GlobalStyle } from "./global.styled";
+import { ThemeProvider } from "styled-components";
+import { dark, light } from "././theme.js";
 
 function App() {
 	const [cards, setCards] = useState(cardList);
+	const [isDarkTheme, setIsDarkTheme] = useState("light");
+
+	const onAddCard = () => {
+		console.log("add card");
+
+		const newCard = {
+		  id: Date.now(),
+		  title: "Новая задача",
+		  topic: "Без темы",
+		  date: "10.05.2024",
+		  status: "Без статуса",
+		}
+		setCards([...cards, newCard]);
+	  };
 	
 	return (
-		<>
+		<ThemeProvider theme={isDarkTheme === "light" ? light : dark}>
 		<GlobalStyle/>
-		<div>
-			<div className="wrapper">
-				<PopExit />
-				<PopNewCard />
-				<PopBrowse />
-
-				<Header setCards={setCards} cards={cards} />
-				<Main cardList={cards}/>
-			</div>
-		</div>
-		</>
-	)
+			<Header onAddCard={onAddCard} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme}/>
+			<Main cards={cards}/>
+			<PopBrowse />
+        <PopNewCard />
+        {/* <PopUser /> */}
+    </ThemeProvider>
+	);
 	
 }
 
-export default App
+export default App;

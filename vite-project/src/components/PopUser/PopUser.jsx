@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import * as S from "./PopUser.styled.js";
+
+import * as S from "../Header/Header.styled.js";
 
 function PopUser() {
   return (
@@ -11,9 +11,9 @@ function PopUser() {
         <p>Темная тема</p>
         <input type="checkbox" name="checkbox" />
       </S.PopUserSetTheme>
-      <S.PopUserButton>
+      <S.HeaderBtnExit>
       <a href="#popExit">Выйти</a>
-      </S.PopUserButton>
+      </S.HeaderBtnExit>
     </S.HeaderPopUserSet>
   );
 }

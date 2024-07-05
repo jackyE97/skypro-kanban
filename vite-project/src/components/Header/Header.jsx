@@ -1,27 +1,20 @@
 import * as S from "./Header.styled.js";
 import { useState } from "react";
-import PopUser from "../PopUser/PopUser";
 
 
 
-const Header = ({ setCards, cards }) => {
+export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
     const [isOpen, setOpen] = useState(false);
 
-    const handleOpen = () => setOpen(!isOpen);
-
-    const onAddCard = () => {
-        console.log("add card");
-
-        const newCard = {
-            id: Date.now(),
-            title: "Новая задача",
-            topic: "Без темы",
-            date: "10.05.2024",
-            status: "Без статуса",
-        }
-        const newCardList = [...cards, newCard]
-        setCards(newCardList);
-    };
+    //Закрываем выпадающее окно
+    const handleOpen = () => {
+        setOpen(!isOpen)
+       };
+    
+    const onChangeTheme = () => {
+        setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
+       };
+       
 
     return (
         <S.Header>
@@ -32,17 +25,26 @@ const Header = ({ setCards, cards }) => {
                         <img src="images/logo.png" alt="logo" />
                     </a>
                     </S.HeaderLogo>
-                    {/* <div className="header__logo _dark">
-                    <a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
-                </div> */}
                     <S.HeaderNav>
                         <S.HeaderBtnMainNew onClick={onAddCard}>
-                            Создать новую задачу
+                        <a>Создать новую задачу</a>
                         </S.HeaderBtnMainNew>
                         <S.HeaderUser onClick={handleOpen}>
                             Ivan Ivanov</S.HeaderUser>
-                        {/* {isOpen &&  <PopUser />} */}
-                        { isOpen &&  <PopUser />}
+                        { isOpen && 
+                          <S.HeaderPopUserSet className="pop-user-set" id="user-set-target">
+                          <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
+                          <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
+                          <S.PopUserSetTheme>
+                            <p>Темная тема</p>
+                            <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
+                          </S.PopUserSetTheme>
+                          <S.HeaderBtnExit>
+                            <a>Выйти</a>
+                          </S.HeaderBtnExit>
+                        </S.HeaderPopUserSet>
+                        }
+                         {/* </PopUser> */}
                     </S.HeaderNav>
                 </S.HeaderBlock>
             </S.Container>

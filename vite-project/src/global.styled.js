@@ -1,14 +1,14 @@
-import { createGlobalStyle } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+*:before,
+  *:after {
+    box-sizing: border-box;
+  }
+
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-  }
-  
-  *:before,
-  *:after {
     box-sizing: border-box;
   }
   
@@ -41,4 +41,49 @@ body {
   margin: 0 auto;
   padding: 0 30px;
 }
-  `;
+`;
+
+export const Hover01 = css`
+  &:hover {
+  background-color: #33399b;
+}
+`;
+
+export const Hover02 = css`
+  &:hover {
+    color: #33399b;
+
+  &:after {
+    border-left-color: #33399b;
+    border-bottom-color: #33399b;
+  }
+}
+`; 
+
+export const Hover03 = css`
+&:hover {
+  background-color: #33399b;
+  color: #FFFFFF;
+}
+`;
+
+
+// Функция для применения стилей
+export const themeColor = ($color) => css`
+  ${$color === "Web Design" && css`
+  background-color: ${({ theme }) => theme.colors.orangeBg};
+    color: ${({ theme }) => theme.colors.orangeText};
+`}
+  ${$color === "Copywriting" && css`
+  background-color: ${({ theme }) => theme.colors.purpleBg};
+    color: ${({ theme }) => theme.colors.purpleText};
+`}
+  ${$color === "Research" && css`
+   background-color: ${({ theme }) => theme.colors.greenBg};
+    color: ${({ theme }) => theme.colors.greenText};
+`}
+  ${$color === "Без темы" && css`
+  background-color: ${({ theme }) => theme.colors.grayBg};
+    color: ${({ theme }) => theme.colors.grayText};
+`}
+`;
