@@ -29,7 +29,7 @@ export const Card = styled.div`
   @media (max-width: ${breakpoints.xl}px) {
     width: 220px;
     height: 130px;
-    background-color: #ffffff;
+    background-color:${({ theme }) => theme.cardBg};
     border-radius: 10px;
     display: flex;
     flex-direction: column;

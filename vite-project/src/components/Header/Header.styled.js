@@ -32,8 +32,20 @@ export const HeaderBlock = styled.div`
 `;
 
 export const HeaderLogo = styled.div`
-  img {
-    width: 85px;
+ &._light {
+    display: ${({ theme }) => (theme.logo === "images/logo.png" ? "block" : "none")};
+  }
+
+  &._dark {
+    display: ${({ theme }) => (theme.logo === "images/logo_dark.png" ? "block" : "none")};
+  }
+img {
+  width: 85px;
+  src: ${({ theme }) => theme.logo};
+}
+
+@media (max-width:  768px) {
+    margin-bottom: 10px;
   }
 `;
 
@@ -43,6 +55,11 @@ export const HeaderNav = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 10px;
+    }
 `;
 
 export const HeaderBtnMainNew = styled.button`

@@ -24,11 +24,16 @@ export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
         <S.Header>
             <S.Container>
                 <S.HeaderBlock>
-                    <S.HeaderLogo>
+                    <S.HeaderLogo className="_show _light">
                         <a href="" target="_self">
                         <img src="images/logo.png" alt="logo" />
                     </a>
                     </S.HeaderLogo>
+                    <S.HeaderLogo  className="_dark">
+            <a href="" target="_self">
+              <img src="images/logo_dark.png" alt="logo" />
+            </a>
+          </S.HeaderLogo >
                     <S.HeaderNav>
                         <S.HeaderBtnMainNew onClick={onAddCard}>
                         <a>Создать новую задачу</a>
@@ -46,9 +51,7 @@ export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
                           <S.HeaderBtnExit onClick={clickOnExit}>
                             <a>Выйти</a>
                           </S.HeaderBtnExit>
-                        </S.HeaderPopUserSet>
-                        }
-                         {/* </PopUser> */}
+                        </S.HeaderPopUserSet>}
                     </S.HeaderNav>
                 </S.HeaderBlock>
             </S.Container>
