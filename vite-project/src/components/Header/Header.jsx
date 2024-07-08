@@ -14,6 +14,10 @@ export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
     const onChangeTheme = () => {
         setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
        };
+
+       const clickOnExit = () => {
+        setOpen(!isOpen)
+       };
        
 
     return (
@@ -39,7 +43,7 @@ export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
                             <p>Темная тема</p>
                             <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
                           </S.PopUserSetTheme>
-                          <S.HeaderBtnExit>
+                          <S.HeaderBtnExit onClick={clickOnExit}>
                             <a>Выйти</a>
                           </S.HeaderBtnExit>
                         </S.HeaderPopUserSet>
