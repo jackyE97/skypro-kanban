@@ -1,5 +1,5 @@
 
-import * as S from "../Header/Header.styled.js";
+import * as S from "./PopUser.styled.js";
 
 function PopUser() {
   return (
