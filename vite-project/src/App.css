@@ -21,6 +21,7 @@
   color: #565EEF;
 }
 
+/* POP NEW CARD */
 .pop-new-card {
   display: none;
   width: 100%;
@@ -137,7 +138,7 @@
   color: #FFFFFF;
   float: right;
 }
-/* PopUSER */
+/* POP NEW CARD */
 
 .subttl {
   color: #000;
