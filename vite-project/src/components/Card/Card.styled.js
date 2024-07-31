@@ -99,12 +99,12 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
+font-size: 14px;
+font-weight: 500;
+line-height: 16px;
+letter-spacing: 0px;
+text-align: left;
   color: ${({ theme }) => theme.text};
-  margin-bottom: 10px;
-
   ${({ $color }) => themeColor($color)}
 `;
 
@@ -118,10 +118,12 @@ export const CardDate = styled.div`
   }
 
   p {
-    margin-left: 6px;
-    font-size: 10px;
-    line-height: 13px;
-    color: ${({ theme }) => theme.text};
-    letter-spacing: 0.2px;
+  margin-left: 6px;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 12px;
+  text-align: left;
+  color: rgb(148, 166, 190);
+  letter-spacing: 0.2px;
   }
 `;
