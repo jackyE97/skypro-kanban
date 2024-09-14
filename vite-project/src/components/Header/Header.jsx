@@ -1,4 +1,5 @@
 import * as S from "./Header.styled.js";
+import * as L from "../PopUser/PopUser.styled.js";
 import { useState } from "react";
 
 
@@ -41,17 +42,17 @@ export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
                         <S.HeaderUser onClick={handleOpen}>
                             Ivan Ivanov</S.HeaderUser>
                         { isOpen && 
-                          <S.HeaderPopUserSet className="pop-user-set" id="user-set-target">
-                          <S.PopUserSetName>Ivan Ivanov</S.PopUserSetName>
-                          <S.PopUserSetMail>ivan.ivanov@gmail.com</S.PopUserSetMail>
-                          <S.PopUserSetTheme>
+                          <L.HeaderPopUserSet>
+                          <L.PopUserSetName>Ivan Ivanov</L.PopUserSetName>
+                          <L.PopUserSetMail>ivan.ivanov@gmail.com</L.PopUserSetMail>
+                          <L.PopUserSetTheme>
                             <p>Темная тема</p>
                             <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
-                          </S.PopUserSetTheme>
-                          <S.HeaderBtnExit onClick={clickOnExit}>
+                          </L.PopUserSetTheme>
+                          <L.HeaderBtnExit onClick={clickOnExit}>
                             <a>Выйти</a>
-                          </S.HeaderBtnExit>
-                        </S.HeaderPopUserSet>}
+                          </L.HeaderBtnExit>
+                        </L.HeaderPopUserSet>}
                     </S.HeaderNav>
                 </S.HeaderBlock>
             </S.Container>
