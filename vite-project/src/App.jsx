@@ -31,8 +31,7 @@ function App() {
 		<GlobalStyle/>
 			<Header onAddCard={onAddCard} setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme}/>
 			<Main cards={cards}/>
-			<PopBrowse />
-        <PopNewCard />
+			{/* <PopBrowse/> */}
         {/* <PopUser /> */}
     </ThemeProvider>
 	);

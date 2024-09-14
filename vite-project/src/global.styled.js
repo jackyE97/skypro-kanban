@@ -68,13 +68,6 @@ export const Hover03 = css`
 `;
 
 
-// .pop-user-set:target,
-// .pop-exit:target,
-// .pop-new-card:target,
-// .pop-browse:target {
-//   display: block;
-// }
-
 // Функция для применения стилей
 export const themeColor = ($color) => css`
   ${$color === "Web Design" && css`
