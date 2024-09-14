@@ -1,6 +1,7 @@
 import * as S from "./Header.styled.js";
 import * as L from "../PopUser/PopUser.styled.js";
 import { useState } from "react";
+import { Container } from "../../global.styled.js";
 
 
 
@@ -23,7 +24,7 @@ export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
 
     return (
         <S.Header>
-            <S.Container>
+            <Container>
                 <S.HeaderBlock>
                     <S.HeaderLogo className="_show _light">
                         <a href="" target="_self">
@@ -55,7 +56,7 @@ export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
                         </L.HeaderPopUserSet>}
                     </S.HeaderNav>
                 </S.HeaderBlock>
-            </S.Container>
+            </Container>
         </S.Header>
     );
 }

@@ -25,6 +25,10 @@ export const MainBlock = styled.div`
 
   @media (max-width: ${breakpoints.xl}px) {
     width: 100%;
+    height: 1024px;
+    background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
     margin: 0 auto;
     padding: 40px 0 64px;
   }

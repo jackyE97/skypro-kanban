@@ -35,12 +35,18 @@ body {
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   color: #000000;
 }
-.container {
-  max-width: 1260px;
+`;
+
+export const Container = styled.div`
+max-width: 1260px;
   width: 100%;
   margin: 0 auto;
   padding: 0 30px;
-}
+  
+  @media screen and (max-width: 495px) {
+    width: 100%;
+    padding: 0 16px;
+  }
 `;
 
 export const Hover01 = css`
