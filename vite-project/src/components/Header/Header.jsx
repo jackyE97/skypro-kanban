@@ -1,60 +1,64 @@
+import * as S from "./Header.styled.js";
+import * as L from "../PopUser/PopUser.styled.js";
 import { useState } from "react";
+import { Container } from "../../global.styled.js";
 
-const Header = ({ setCards, cards }) => {
+
+
+export const Header = ({ onAddCard, isDarkTheme, setIsDarkTheme }) => {
     const [isOpen, setOpen] = useState(false);
 
+    //Закрываем выпадающее окно
     const handleOpen = () => {
-        setOpen((prev) => !prev )
-    } ;
+        setOpen(!isOpen)
+       };
+    
+    const onChangeTheme = () => {
+        setIsDarkTheme(isDarkTheme === "light" ? "dark" : "light");  
+       };
 
-//     useEffect(() => {
-// }, [isOpen]);
+       const clickOnExit = () => {
+        setOpen(!isOpen)
+       };
+       
 
-const onAddCard = () => {
-    console.log("add card");
-
-    const newCard = {
-        id: Date.now(),
-        title: "Новая задача",
-        topic: "Без темы",
-        date: "10.05.2024",
-        status: "Без статуса",
-    }
-    const newCardList = [...cards, newCard]
-    setCards(newCardList);
-};
-
-    return ( 
-        <header className="header">
-        <div className="container">
-            <div className="header__block">
-                <div className="header__logo _show _light">
-                    <a href="" target="_self"><img src="images/logo.png" alt="logo" /></a>
-                </div>
-                <div className="header__logo _dark">
-                    <a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
-                </div>
-                <nav className="header__nav">
-                    <button className="header__btn-main-new _hover01" onClick={onAddCard}>
-                        Создать новую задачу</button>
-                    <div className="header__user _hover02" onClick={handleOpen}>
-                        Ivan Ivanov</div>
-                        {isOpen && (
-                                     <div className="header__pop-user-set pop-user-set">
-                                     <p className="pop-user-set__name">Ivan Ivanov</p>
-                                     <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-                                     <div className="pop-user-set__theme">
-                                         <p>Темная тема</p>
-                                         <input type="checkbox" className="checkbox" name="checkbox" />
-                                     </div>
-                                     <button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-                                 </div>
-                        )}
-                </nav>
-            </div>
-        </div>
-    </header>
-     );
+    return (
+        <S.Header>
+            <Container>
+                <S.HeaderBlock>
+                    <S.HeaderLogo className="_show _light">
+                        <a href="" target="_self">
+                        <img src="images/logo.png" alt="logo" />
+                    </a>
+                    </S.HeaderLogo>
+                    <S.HeaderLogo  className="_dark">
+            <a href="" target="_self">
+              <img src="images/logo_dark.png" alt="logo" />
+            </a>
+          </S.HeaderLogo >
+                    <S.HeaderNav>
+                        <S.HeaderBtnMainNew onClick={onAddCard}>
+                        <a>Создать новую задачу</a>
+                        </S.HeaderBtnMainNew>
+                        <S.HeaderUser onClick={handleOpen}>
+                            Ivan Ivanov</S.HeaderUser>
+                        { isOpen && 
+                          <L.HeaderPopUserSet>
+                          <L.PopUserSetName>Ivan Ivanov</L.PopUserSetName>
+                          <L.PopUserSetMail>ivan.ivanov@gmail.com</L.PopUserSetMail>
+                          <L.PopUserSetTheme>
+                            <p>Темная тема</p>
+                            <input checked={isDarkTheme === "dark"} onClick={onChangeTheme} type="checkbox" className="checkbox" name="checkbox" />
+                          </L.PopUserSetTheme>
+                          <L.HeaderBtnExit onClick={clickOnExit}>
+                            <a>Выйти</a>
+                          </L.HeaderBtnExit>
+                        </L.HeaderPopUserSet>}
+                    </S.HeaderNav>
+                </S.HeaderBlock>
+            </Container>
+        </S.Header>
+    );
 }
- 
+
 export default Header;
