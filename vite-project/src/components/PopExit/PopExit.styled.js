@@ -1,8 +1,13 @@
 import { Hover01, Hover03 } from "../../glogal.styled";
+import styled from "styled-components";
 
 export const PopExit = styled.div`
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
   min-width: 320px;
   min-height: 100vh;
   position: absolute;
@@ -39,19 +44,21 @@ export const PopExitBlock = styled.div`
   }
 `;
 
-export const PopExitTitle = styled.div`
-    h2 {
-      text-align: center;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 30px;
-      letter-spacing: -0.4px;
-      margin-bottom: 20px;
-    }
-`;
+export const PopExitTtl  = styled.h2`
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -0.4px;
+    margin-bottom: 20px;
+    color: ${({ theme }) => theme.text}; 
+   `;
 
 export const PopExitForm = styled.form` 
-
+width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;
 
 export const PopExitFormGroup = styled.div`
